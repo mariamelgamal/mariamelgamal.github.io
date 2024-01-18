@@ -18,4 +18,4 @@ social: false # includes social icons at the bottom of the page
 
 I am Mariam, a Ph.D. candidate in Electrical Engineering at Harvard University. My research focuses on designing and optimizing environmentally sustainable computing systems across the stack. Prior to Harvard, I double majored in Electrical Engineering and Computer Science at New York University Abu Dhabi. 
 
-For more info, you can find me on ([linkedin](https://www.linkedin.com/in/mariamelgamal/)) and ([google scholar](https://scholar.google.com/citations?user=46LuxZUAAAAJ&hl=en)https://scholar.google.com/citations?user=46LuxZUAAAAJ&hl=en).
+For more info, you can find me on [linkedin](https://www.linkedin.com/in/mariamelgamal/) and [google scholar](https://scholar.google.com/citations?user=46LuxZUAAAAJ&hl=en).
