@@ -8,7 +8,7 @@
           <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
             {%- if site.title == "blank" -%}
               {%- if site.first_name -%}
-                {{- site.first_name -}}
+                <span class="font-weight-bold">{{- site.first_name -}}&nbsp;</span>
               {%- endif -%}
               {%- if site.middle_name -%}
                 {{- site.middle_name -}}&nbsp;
@@ -57,12 +57,6 @@
               {%- for p in sorted_pages -%}
               {%- if p.nav and p.autogen == nil -%}
               {%- if p.dropdown %}
-              {%- assign has_active_child = false -%}
-              {%- for child in p.children -%}
-              {%- if page.title == child.title -%}
-              {%- assign has_active_child = true -%}
-              {%- endif -%}
-              {%- endfor -%}
               <li class="nav-item dropdown {% if page.title == p.title or has_active_child %}active{% endif %}">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ p.title }}
                   {%- if page.title == p.title or has_active_child -%}
@@ -81,11 +75,6 @@
               </li>
               {%- else %}
               <li class="nav-item {% if page.url contains p.permalink %}active{% endif %}">
-                {%- if p.permalink contains '/blog/' %}
-                {%- assign url = '/blog/' -%}
-                {%- else -%}
-                {%- assign url = p.url -%}
-                {%- endif -%}
                 <a class="nav-link" href="{{ url | relative_url }}">{{ p.title }}
                   {%- if page.url contains p.url -%}
                   <span class="sr-only">(current)</span>
