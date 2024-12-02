@@ -6,7 +6,7 @@ description:
 sections:
   - bibquery: "@inproceedings"
     text: "Conference Publications"
-  - bibquery: "@techreport"
+  - bibquery: "@misc"
     text: "Peer-Reviewed Workshop Publications"
   - bibquery: "@article"
     text: "Journal Publications"
