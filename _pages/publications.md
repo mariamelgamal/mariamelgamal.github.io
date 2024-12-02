@@ -18,6 +18,10 @@ nav_order: 2
 <!-- _pages/publications.md -->
 <div class="publications">
 
-{% bibliography -f {{ site.scholar.bibliography }} %}
+{%- for section in page.sections %}
+  <a id="{{section.text}}"></a>
+  <h3 class="bibtitle">{{section.text}}</h3>
+  {% bibliography -f {{ site.scholar.bibliography }} %}
+{%- endfor %}
 
 </div>
