@@ -6,10 +6,10 @@ description:
 sections:
   - bibquery: "@inproceedings"
     text: "Conference Publications"
-  - bibquery: "@article"
-    text: "Journal Publications"
   - bibquery: "@techreport"
     text: "Peer-Reviewed Workshop Publications"
+  - bibquery: "@article"
+    text: "Journal Publications"
 nav: true
 nav_order: 3
 ---
