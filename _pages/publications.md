@@ -10,8 +10,6 @@ sections:
     text: "Journal Publications"
   - bibquery: "@techrepor"
     text: "Peer-Reviewed Workshop Publications"
-  - bibquery: "@misc"
-    text: "Theses"
 nav: true
 nav_order: 3
 ---
