@@ -13,7 +13,7 @@ sections:
   - bibquery: "@misc"
     text: "Theses"
 nav: true
-nav_order: 2
+nav_order: 3
 ---
 <!-- _pages/publications.md -->
 <div class="publications">
@@ -21,7 +21,7 @@ nav_order: 2
 {%- for section in page.sections %}
   <a id="{{section.text}}"></a>
   <h3 class="bibtitle">{{section.text}}</h3>
-  {% bibliography -f {{ site.scholar.bibliography }} %}
+  {% bibliography -f {{site.scholar.bibliography}} -q {{section.bibquery}} %}
 {%- endfor %}
 
 </div>
