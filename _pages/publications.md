@@ -8,10 +8,8 @@ sections:
     text: "Conference Publications"
   - bibquery: "@article"
     text: "Journal Publications"
-  - bibquery: "@report"
+  - bibquery: "@techrepor"
     text: "Peer-Reviewed Workshop Publications"
-  - bibquery: "@techreport"
-    text: "Technical Reports"
   - bibquery: "@misc"
     text: "Theses"
 nav: true
