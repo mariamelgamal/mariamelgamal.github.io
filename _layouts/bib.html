@@ -26,14 +26,9 @@
           {%- else -%}
             <abbr class="badge">{{entry.abbr}}</abbr>
           {%- endif -%}
-<!--           {%- if entry.award -%}
-             <br/>
-             <span class="award badge">{{entry.award}}</span>
-          {%- endif -%} -->
           {%- if entry.award -%}
-             <div style="padding-bottom: 8px;">
-                <span class="award badge">{{entry.award}}</span>
-             </div>
+             <br/>
+             <span class="award badge" style="margin-right: 10px;">{{entry.award}}</span>
           {%- endif -%}
         {%- endif -%}
         </div>
