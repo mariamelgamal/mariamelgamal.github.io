@@ -21,7 +21,7 @@ nav_order: 3
 {%- for section in page.sections %}
   <br/>
   <a id="{{section.text}}"></a>
-  <h3 class="bibtitle">{{section.text}}</h3>
+  <h2 class="bibtitle">{{section.text}}</h2>
   {% bibliography -f {{site.scholar.bibliography}} -q {{section.bibquery}} %}
 {%- endfor %}
 
