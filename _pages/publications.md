@@ -9,6 +9,8 @@ sections:
   - bibquery: "@misc"
     text: "Peer-Reviewed Workshop Publications"
   - bibquery: "@article"
+    text: "Journal Publications"
+  - bibquery: "@techreport"
     text: "Non-Technical Articles"
 nav: true
 nav_order: 3
