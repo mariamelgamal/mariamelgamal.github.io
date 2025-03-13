@@ -24,10 +24,10 @@
             {%- endif -%}
             <abbr class="badge" {% if venue_style %}{{venue_style}}{% endif %}><a href="{{site.data.venues[entry.abbr].url}}">{{entry.abbr}}</a></abbr>
           {%- else -%}
-            <abbr class="badge" style="margin-right: 25px">{{entry.abbr}}</abbr>
+            <abbr class="badge" style="margin-right: 60px">{{entry.abbr}}</abbr>
           {%- endif -%}
           {%- if entry.award -%}
-            <span class="award badge" style="margin-right: 25px;">{{entry.award}}</span>
+            <span class="award badge" style="margin-right: 60px;">{{entry.award}}</span>
           {%- endif -%}
 <!--           {%- if entry.award -%}
              <br/>
