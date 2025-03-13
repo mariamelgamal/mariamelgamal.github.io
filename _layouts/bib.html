@@ -22,12 +22,12 @@
             {%- if site.data.venues[entry.abbr].color != blank -%}
               {%- assign venue_style = site.data.venues[entry.abbr].color | prepend: 'style="background-color:' | append: '"' -%}
             {%- endif -%}
-            <abbr class="badge" {% if venue_style %}{{venue_style}}{% endif %} style="margin-right: 20px !important;"><a href="{{site.data.venues[entry.abbr].url}}">{{entry.abbr}}</a></abbr>
+            <abbr class="badge" {% if venue_style %}{{venue_style}}{% endif %} style="margin-right: 60px !important;"><a href="{{site.data.venues[entry.abbr].url}}">{{entry.abbr}}</a></abbr>
           {%- else -%}
-              <abbr class="badge" style="margin-right: 20px !important">{{entry.abbr}}</abbr>
+              <abbr class="badge" style="margin-right: 60px !important">{{entry.abbr}}</abbr>
           {%- endif -%}
           {%- if entry.award -%}
-            <span class="award badge" style="margin-right: 20px !important;">{{entry.award}}</span>
+            <span class="award badge" style="margin-right: 60px !important;">{{entry.award}}</span>
           {%- endif -%}
 <!--           {%- if entry.award -%}
              <br/>
