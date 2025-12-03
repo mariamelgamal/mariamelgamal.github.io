@@ -16,5 +16,5 @@ Guest Lecture for Graduate Algorithms & Data Structures at MBZUAI (hosted by Pro
 ### **Sustainable Computing** — *2024*  
 Guest Lecture for Harvard ES96 (hosted by Prof. Gu-Yeon Wei)
 
-### **CS248 (Advanced) Design of VLSI Circuits and Systems — Harvard SEAS**  
-Graduate Teaching Fellow, Spring 2024
+### **CS248 (Advanced) Design of VLSI Circuits and Systems — *Spring 2024*
+Graduate Teaching Fellow
