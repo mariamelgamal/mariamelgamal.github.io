@@ -5,11 +5,11 @@ title: publications
 description: 
 sections:
   - bibquery: "@inproceedings"
-    text: "Publications"
-  - bibquery: "@misc"
-    text: "Peer-Reviewed Workshop Publications"
+    text: "Conference Publications"
   - bibquery: "@article"
     text: "Journal Publications"
+  - bibquery: "@misc"
+    text: "Peer-Reviewed Workshop Publications"
 nav: true
 nav_order: 3
 ---
