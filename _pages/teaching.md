@@ -7,14 +7,14 @@ nav: true
 nav_order: 6
 ---
 
-### **CO₂-Efficient Hardware Design** — *2025*  
+#### **CO₂-Efficient Hardware Design** — 2025  
 Guest Lecture for Harvard CS2470R (hosted by Prof. David Brooks)
 
-### **Robust Optimization for Computer Architecture** — *2025*  
+#### **Robust Optimization for Computer Architecture** — 2025  
 Guest Lecture for Graduate Algorithms & Data Structures at MBZUAI (hosted by Prof. Abdulrahman Mahmoud)
 
-### **Sustainable Computing** — *2024*  
+#### **Sustainable Computing** — 2024  
 Guest Lecture for Harvard ES96 (hosted by Prof. Gu-Yeon Wei)
 
-### **CS248 (Advanced) Design of VLSI Circuits and Systems** — *Spring 2024*
-Graduate Teaching Fellow
+#### **Advanced Design of VLSI Circuits and Systems** — Spring 2024
+Graduate Teaching Fellow for Harvard CS248
