@@ -4,6 +4,12 @@
 
 // Typography
 
+body {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
 p,
 h1,
 h2,
@@ -17,6 +23,27 @@ li,
 span,
 strong {
   color: var(--global-text-color);
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+// About page section spacing: more space above News / Selected Publications
+// headings, less space between the heading and its content.
+.post > article > h4 {
+  margin-top: 3rem;
+  margin-bottom: 0rem;
+}
+
+.post > article > .publications {
+  margin-top: 1rem;
+}
+
+.post > article > .news {
+  margin-top: 0.25rem;
+  margin-bottom: 0rem;
 }
 
 hr {
@@ -130,16 +157,16 @@ blockquote {
 }
 
 .profile.float-right {
-  margin-left: 1rem;
+  margin-left: 2rem;
 }
 
 .profile.float-left {
-  margin-right: 1rem;
+  margin-right: 2rem;
 }
 
 @media (min-width: 576px) {
   .profile {
-    width: 30%;
+    width: 22%;
 
     .address {
       p {
@@ -170,7 +197,9 @@ blockquote {
   box-shadow: none;
   border-bottom: 1px solid var(--global-divider-color);
   background-color: var(--global-bg-color);
-  opacity: 0.95;
+  background-color: color-mix(in srgb, var(--global-bg-color) 82%, transparent);
+  backdrop-filter: saturate(180%) blur(8px);
+  -webkit-backdrop-filter: saturate(180%) blur(8px);
 }
 
 .navbar .dropdown-menu {
@@ -548,82 +577,553 @@ footer.sticky-bottom {
 //news
 .news span { color: var(--global-theme-color); }
 .news span:hover { color: var(--global-theme-color); text-decoration: underline; cursor: pointer; }
-.news table td { font-size: 1rem; color: var(--global-text-color); padding: 1px; margin: 0px; }
+.news table td { font-size: 1.1rem; color: var(--global-text-color); padding: 1px; margin: 0px; }
 .news table th { color: var(--global-text-color); padding: 1px; margin: 0px; }
 .news table-responsive { overflow-y: hidden; }
 
-// Publications
+// Timeline-style news
+.news-timeline {
+  --rail-color: var(--global-divider-color);
+  --dot-color: var(--global-theme-color);
+  --chip-bg: rgba(127, 127, 127, 0.08);
+  --chip-fg: var(--global-text-color-light);
 
+  .news-year {
+    margin: 0.5rem 0 1.25rem;
+  }
 
-.publications { margin-top: 2rem; width: 100%; }
+  .news-year-label {
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--global-text-color-light);
+    padding: 0.25rem 0 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: default;
+  }
 
-.publications h1 { color: var(--global-theme-color); font-size: 2rem; text-align: center; margin-top: 1em; margin-bottom: 1em; }
+  details > summary.news-year-label {
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  details > summary.news-year-label::-webkit-details-marker { display: none; }
+  details > summary.news-year-label::before {
+    content: '▸';
+    font-size: 0.7rem;
+    transition: transform 0.15s ease;
+    display: inline-block;
+  }
+  details[open] > summary.news-year-label::before { transform: rotate(90deg); }
 
-.publications h2 { margin-bottom: 1rem; }
+  .news-year-count {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    letter-spacing: 0.05em;
+  }
 
-.publications h2 span { font-size: 1.5rem; }
+  .news-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-left: 1px solid var(--rail-color);
+  }
 
-.publications h2.year { color: #e8e8e8; border-top: 1px solid #e8e8e8; padding-top: 1rem; margin-top: 2rem; margin-bottom: -2rem; text-align: right; }
+  .news-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    gap: 0.5rem;
+    padding: 0.1rem 0 0.1rem 1.25rem;
+    align-items: baseline;
 
-.publications h3.year { color: #e8e8e8; border-top: 1px solid #e8e8e8; padding-top: 0.5rem; margin-top: 1rem; margin-bottom: -2rem; text-align: right; }
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+      gap: 0.1rem;
+    }
+  }
 
-.publications h3.pubtype { margin-bottom: 1rem; }
+  .news-dot {
+    position: absolute;
+    left: -5px;
+    top: 0.55rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--global-bg-color);
+    border: 2px solid var(--rail-color);
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .news-item:hover .news-dot {
+    border-color: var(--dot-color);
+    transform: scale(1.15);
+  }
+  .news-item-featured .news-dot {
+    background: var(--dot-color);
+    border-color: var(--dot-color);
+  }
 
-.publications h3.pubtype span { font-size: 1.25rem; }
+  .news-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
 
-.publications ol.bibliography { list-style: none; padding: 0; margin-top: 0; font-size: 0.875rem; }
+  .news-date {
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.03em;
+    color: var(--global-text-color-light);
+    white-space: nowrap;
+  }
 
-.publications ol.bibliography li { margin-bottom: 1rem}
+  .news-body {
+    font-size: 1.05rem;
+    line-height: 1.45;
+  }
 
-.publications ol.bibliography li .abbr { height: 2rem; margin-bottom: 0.5rem; }
+  .news-chip {
+    display: inline-block;
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.12rem 0.45rem;
+    border-radius: 999px;
+    background: var(--chip-bg);
+    color: var(--chip-fg);
+    border: 1px solid var(--rail-color);
+    line-height: 1.4;
+  }
 
-.publications ol.bibliography li .abbr abbr { display: inline-block; background-color: var(--global-theme-color); padding-left: 1rem; padding-right: 1rem; }
+  // Subtle per-category accent (keeps chips monochrome-ish but recognizable)
+  .news-chip-paper       { border-color: rgba( 66, 133, 244, 0.45); }
+  .news-chip-talk        { border-color: rgba(219, 68,  55, 0.45); }
+  .news-chip-award       { border-color: rgba(244, 180,  0, 0.55); }
+  .news-chip-internship  { border-color: rgba( 15, 157, 88, 0.45); }
+  .news-chip-service     { border-color: rgba(142, 68, 173, 0.45); }
+  .news-chip-press       { border-color: rgba(230, 126, 34, 0.55); }
 
-.publications ol.bibliography li .abbr abbr a { color: white; }
+  .news-item-featured .news-body::before {
+    content: '★';
+    margin-right: 0.35rem;
+    color: var(--dot-color);
+    font-size: 0.85em;
+  }
+}
 
-.publications ol.bibliography li .abbr abbr a:hover { text-decoration: none; }
+// Teaching — clean, flat list with role chip + course line
+.teaching-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
 
-.publications ol.bibliography li .abbr .award { color: var(--global-theme-color) !important; border: 1px solid var(--global-theme-color); }
+  .teaching-item {
+    margin-bottom: 0.85rem;
 
-.publications ol.bibliography li .tightbib { margin-bottom: 0rem; }
+    &:last-child { margin-bottom: 0; }
+  }
 
-.publications ol.bibliography li .title { font-weight: bolder; margin-bottom: 0rem; }
+  .teaching-title-row {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
 
-.publications ol.bibliography li .title .doi { color: var(--global-text-color); }
+  .teaching-chip {
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--global-text-color-light);
+    line-height: 1.4;
+    white-space: nowrap;
+  }
 
-.publications ol.bibliography li .title .doi:hover { color: var(--global-theme-color); }
+  .teaching-chip-guest,
+  .teaching-chip-tf,
+  .teaching-chip-tutorial,
+  .teaching-chip-lightning { color: var(--global-text-color-light); }
 
-.publications ol.bibliography li .author { margin-bottom: 0rem; }
+  .teaching-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--global-text-color);
+  }
 
-.publications ol.bibliography li .author a { border-bottom: 1px dashed var(--global-theme-color); }
+  .teaching-course {
+    margin-top: 0.15rem;
+    color: var(--global-text-color-light);
+    font-size: 1rem;
+    line-height: 1.2;
+  }
 
-.publications ol.bibliography li .author a:hover { border-bottom-style: solid; text-decoration: none; }
+  .teaching-sublist {
+    list-style: disc;
+    padding-left: 1.2rem;
+    margin: 0.25rem 0 0;
+    color: var(--global-text-color-light);
 
-.publications ol.bibliography li .author > em { border-bottom: 1px solid; font-style: normal; }
+    li {
+      color: var(--global-text-color-light);
+      font-size: 1rem;
+      line-height: 1.4;
+      margin: 0.1rem 0;
+    }
+  }
+}
 
-.publications ol.bibliography li .periodical { margin-bottom: 0rem; }
+// Publications — timeline style, mirrors news-timeline visual language
 
-.publications ol.bibliography li .award { font-weight: bold; color: var(--global-theme-color) !important; margin-top: 0.2rem; margin-bottom: 0.2rem; }
+.publications {
+  --rail-color: var(--global-divider-color);
+  --dot-color: var(--global-theme-color);
+  --award-gold: #d4a017;
 
-.publications ol.bibliography li .eqcontr { color: var(--global-text-color); margin-bottom: 0rem; }
+  margin-top: 2rem;
+  width: 100%;
 
-.publications ol.bibliography li .links { margin-bottom: 0rem; }
+  h1 {
+    color: var(--global-theme-color);
+    font-size: 2rem;
+    text-align: center;
+    margin: 1em 0;
+  }
 
-.publications ol.bibliography li .links a.btn { color: var(--global-text-color); border: 1px solid var(--global-text-color); padding-left: 1rem; padding-right: 1rem; padding-top: 0.25rem; padding-bottom: 0.25rem; margin-bottom: 0rem; margin-left: 0rem; }
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    span { font-size: 1.5rem; }
+  }
 
-.publications ol.bibliography li .links a.btn:hover { color: var(--global-theme-color); border-color: var(--global-theme-color); }
+  // Year separators on full publications page — mirrors news-year-label
+  h2.year,
+  h3.year {
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--global-text-color-light);
+    border-top: 1px solid var(--rail-color);
+    padding-top: 0.75rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
 
-.publications ol.bibliography li .hidden { font-size: 0.875rem; max-height: 0px; overflow: hidden; text-align: justify; -webkit-transition: 0.15s ease; -moz-transition: 0.15s ease; -ms-transition: 0.15s ease; -o-transition: 0.15s ease; transition: all 0.15s ease; }
+  h3.pubtype {
+    margin-bottom: 1rem;
+    span { font-size: 1.25rem; }
+  }
 
-.publications ol.bibliography li .hidden p { line-height: 1.4em; margin: 10px; }
+  // Filter chip bar above the timeline
+  .pub-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.5rem 0 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--rail-color);
+  }
 
-.publications ol.bibliography li .hidden pre { font-size: 1em; line-height: 1.4em; padding: 10px; }
+  .pub-filter {
+    appearance: none;
+    background: transparent;
+    border: 1px solid var(--rail-color);
+    color: var(--global-text-color-light);
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    line-height: 1.3;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 
-.publications ol.bibliography li .hidden.open { max-height: 100em; -webkit-transition: 0.15s ease; -moz-transition: 0.15s ease; -ms-transition: 0.15s ease; -o-transition: 0.15s ease; transition: all 0.15s ease; }
+    &:hover {
+      border-color: var(--global-theme-color);
+      color: var(--global-theme-color);
+    }
 
-.publications ol.bibliography li div.abstract.hidden { border: dashed 1px var(--global-bg-color); }
+    &.is-active {
+      background-color: var(--global-theme-color);
+      border-color: var(--global-theme-color);
+      color: white;
 
-.publications ol.bibliography li div.abstract.hidden.open { border-color: var(--global-text-color); }
+      .pub-filter-count {
+        background-color: rgba(255, 255, 255, 0.22);
+        color: white;
+      }
+    }
+  }
+
+  .pub-filter-count {
+    font-size: 0.65rem;
+    line-height: 1;
+    padding: 0.2rem 0.45rem;
+    border-radius: 999px;
+    background-color: var(--global-divider-color);
+    color: var(--global-text-color-light);
+    font-variant-numeric: tabular-nums;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  // Filter behavior — hide non-matching entries
+  .pub-timeline[data-active-filter="conference"] ol.bibliography > li:not([data-pubtype~="conference"]),
+  .pub-timeline[data-active-filter="workshop"]  ol.bibliography > li:not([data-pubtype~="workshop"]),
+  .pub-timeline[data-active-filter="journal"]   ol.bibliography > li:not([data-pubtype~="journal"]),
+  .pub-timeline[data-active-filter="other"]     ol.bibliography > li:not([data-pubtype~="other"]),
+  .pub-timeline[data-active-filter="awarded"]   ol.bibliography > li:not([data-awarded="true"]) {
+    display: none;
+  }
+
+  // Paper awards chip — gold accent to echo the award badge
+  .pub-filter-awards {
+    &:hover { border-color: var(--award-gold); color: var(--award-gold); }
+
+    &.is-active {
+      background-color: var(--award-gold);
+      border-color: var(--award-gold);
+      color: white;
+    }
+  }
+
+  // The timeline rail lives on the <ol>; each <li> hosts a dot + flowing entry.
+  ol.bibliography {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.5rem;
+    font-size: 1.05rem;
+    border-left: 1px solid var(--rail-color);
+
+    li {
+      position: relative;
+      padding: 0.25rem 0 1.75rem 1.5rem;
+      margin: 0;
+      transition: transform 0.15s ease;
+
+      // Dot on the rail
+      &::before {
+        content: '';
+        position: absolute;
+        left: -5px;
+        top: 0.65rem;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--global-bg-color);
+        border: 2px solid var(--rail-color);
+        transition: border-color 0.15s ease, transform 0.15s ease;
+      }
+
+      &:hover::before {
+        border-color: var(--dot-color);
+        transform: scale(1.15);
+      }
+
+      // Soften the whole entry on hover — subtle motion, no color change
+      &:hover .title { color: var(--global-theme-color); }
+    }
+  }
+
+  // Meta line (date · venue chip · award chip)
+  .pub-entry {
+    display: block;
+  }
+
+  .pub-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .pub-date {
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.03em;
+    color: var(--global-text-color-light);
+    white-space: nowrap;
+  }
+
+  // Chips — exact typographic match with .news-chip
+  .venue-chip,
+  .award.badge {
+    display: inline-block;
+    max-width: 100%;
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.45;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  .venue-chip {
+    background-color: var(--global-theme-color);
+    border-color: var(--global-theme-color);
+
+    a, a:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  .award.badge {
+    background-color: transparent;
+    color: var(--award-gold) !important;
+    border-color: var(--award-gold);
+    font-weight: 500;
+  }
+
+  // Preview thumbnail floats right (if enabled + set on the entry)
+  .pub-preview {
+    float: right;
+    width: 150px;
+    max-width: 30%;
+    margin: 0 0 0.5rem 1rem;
+    img { width: 100%; height: auto; }
+  }
+
+  // Entry body typography
+  .title {
+    font-weight: 500;
+    font-size: 1.1rem;
+    line-height: 1.2;
+    margin-bottom: 0.1rem;
+    transition: color 0.15s ease;
+
+    .doi {
+      color: var(--global-text-color);
+      &:hover { color: var(--global-theme-color); }
+    }
+  }
+
+  .author {
+    color: var(--global-text-color-light);
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 0.1rem;
+
+    a {
+      color: var(--global-text-color-light);
+      text-decoration: none;
+      transition: color 0.15s ease;
+      &:hover { color: var(--global-theme-color); }
+    }
+
+    > em {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--global-theme-color);
+    }
+
+    .more-authors {
+      color: var(--global-theme-color);
+      cursor: pointer;
+      border-bottom: 1px dotted currentColor;
+    }
+  }
+
+  .periodical {
+    color: var(--global-text-color-light);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    em { font-style: italic; }
+  }
+
+  .eqcontr {
+    color: var(--global-text-color-light);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+  }
+
+  // Action links — dot-separated mono, no pill borders
+  .links {
+    margin-top: 0.4rem;
+    font-family: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.5;
+
+    a {
+      color: var(--global-text-color-light);
+      text-decoration: none;
+      transition: color 0.15s ease;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--global-theme-color);
+        text-decoration: none;
+      }
+    }
+
+    // Middot separators between links
+    a + a::before {
+      content: '·';
+      margin: 0 0.45rem;
+      color: var(--rail-color);
+    }
+  }
+
+  // Collapsible abstract / bibtex panels
+  .hidden {
+    font-size: 0.9rem;
+    max-height: 0;
+    overflow: hidden;
+    text-align: justify;
+    transition: max-height 0.2s ease, margin 0.2s ease;
+    margin-top: 0;
+
+    p { line-height: 1.5; margin: 0.75rem 0; }
+    pre { font-size: 0.85rem; line-height: 1.5; padding: 0.75rem; margin: 0.5rem 0; }
+  }
+
+  .hidden.open {
+    max-height: 100em;
+    margin-top: 0.6rem;
+  }
+
+  div.abstract.hidden {
+    border-left: 2px solid transparent;
+    padding-left: 0;
+  }
+  div.abstract.hidden.open {
+    border-left-color: var(--global-theme-color);
+    padding-left: 0.75rem;
+  }
+}
+
+// Respect reduced-motion preferences
+@media (prefers-reduced-motion: reduce) {
+  .publications ol.bibliography li,
+  .publications ol.bibliography li::before,
+  .publications .title,
+  .publications .links a,
+  .publications .author a { transition: none !important; }
+}
 
 
 // Rouge Color Customization
@@ -697,6 +1197,12 @@ html.transition *:after {
       }
     }
   }
+
+  .clearfix {
+    p {
+      text-align: justify;
+    }
+  }
 }
 
 progress {
@@ -764,7 +1270,7 @@ progress::-moz-progress-bar {
     border-radius: .3rem;
     border-style: none;
     color: var(--global-text-color);
-    font-size: medium;
+    font-size: small;
     opacity: 0;
     position: absolute;
     right: .5rem;

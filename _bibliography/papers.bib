@@ -1,17 +1,32 @@
 ---
 ---
+@inproceedings{ISCA2026,
+author = {Elgamal, Mariam and Mahmoud, Abdulrahman and Wei, Gu-Yeon and Brooks, David and Hills, Gage},
+title = {RHODES: Robust Optimization for Uncertainty-Aware Design of CO<sub>2</sub>-Efficient Computing Systems},
+year = {2026},
+booktitle = {2026 International Symposium on Computer Architecture (ISCA)},
+location = {Raleigh, NC, USA},
+series = {ISCA '26},
+selected = {true},
+abbr = {ISCA},
+rank = {14},
+}
+
 @inproceedings{ASPLOS2026,
 author = {Prakash, Shvetank and Cheng, Andrew and Kindgren, Olof and Ahamed, Ashiq and Knight, Graham and Kufel, Jed and Rodriguez, Francisco and 
 Tschand, Arya and Kong, David and Elgamal, Mariam and Huang, Jerry and Chen, Emma and Hills, Gage and Price, Richard and
 Ozer, Emre and  Reddi, Vijay Janapa},
-title = {Lifetime-Aware Design of Item-Level Intelligence},
+title = {Lifetime-Aware Design of Item-Level Intelligence at the Extreme Edge},
 year = {2026},
 booktitle = {2026 ACM International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS)},
 location = {Pittsburgh, USA},
 series = {ASPLOS '26},
 selected = {false},
 abbr = {ASPLOS},
-arXiV = {2509.08193}
+arXiV = {2509.08193},
+award = {Best Paper Award},
+html = {https://dl.acm.org/doi/abs/10.1145/3779212.3790182},
+rank = {13},
 }
 
 @inproceedings{DATE2025pfas,
@@ -21,11 +36,12 @@ year = {2025},
 booktitle = {2025 Design, Automation and Test in Europe Conference (DATE)},
 location = {Lyon, France},
 series = {DATE '25},
-selected = {true},
+selected = {false},
 abbr = {DATE},
 html = {https://ieeexplore.ieee.org/abstract/document/10992705},
 pdf = {PFASware_Quantifying_the_Environmental_Impact_of_Per-_and_Polyfluoroalkyl_Substances_PFAS_in_Computing_Systems.pdf},
-arXiV = {2505.06727}
+arXiV = {2505.06727},
+rank = {10}
 }
 
 @inproceedings{DATE2025ppatc,
@@ -39,23 +55,26 @@ selected = {true},
 abbr = {DATE},
 award = {Best Paper Award Candidate},
 html = {https://ieeexplore.ieee.org/abstract/document/10993243},
-pdf = {Quantifying_Trade-Offs_in_Power_Performance_Area_and_Total_Carbon_Footprint_of_Future_Three-Dimensional_Integrated_Computing_Systems.pdf}
+pdf = {Quantifying_Trade-Offs_in_Power_Performance_Area_and_Total_Carbon_Footprint_of_Future_Three-Dimensional_Integrated_Computing_Systems.pdf},
+rank = {9}
 }
 
 @inproceedings{HPCA2025,
 author = {Elgamal, Mariam and Carmean, Doug and Ansari, Elnaz and Zed, Okay and Peri, Ramesh and Manne, Srilatha and Gupta, Udit and Wei, Gu-Yeon and Brooks, David and Hills, Gage and Wu, Carole-Jean},
 title = {CORDOBA: Carbon-Efficient Design Optimization Framework for Computing Systems},
+abstract = {The world’s push toward an environmentally sustainable society is highly dependent on the semiconductor industry. Despite existing carbon modeling efforts to quantify carbon footprint of computing systems, optimizing carbon footprint in large design spaces-while also considering trade-offs in power, performance, and area-is especially challenging. To address this need, we present CORDOBA, a carbon-aware optimization framework that optimizes carbon efficiency. We quantify carbon efficiency using the total Carbon Delay Product metric (tCDP): the product of total carbon and application execution time. We justify why tCDP is an effective metric for quantifying carbon efficiency. We use CORDOBA to explore the large design space for carbonefficient specialized hardware, and identify distinct carbonefficient optimal designs across operational use (eliminating up to 98% of the design space) despite uncertainty in carbon footprint parameters. We quantify opportunities to improve tCDP for real system case studies: (a) optimizing hardware provisioning from 8 to 4 cores in real system CPUs improves tCDP by 1.25×; and (b) leveraging advanced three-dimensional (3D) integration techniques (3D stacking of separately-fabricated logic and memory chips) improves tCDP by 6.9× versus conventional systems.},
 year = {2025},
 booktitle = {2025 IEEE International Symposium on High Performance Computer Architecture (HPCA)},
 location = {Las Vegad, NV, USA},
 series = {HPCA '25},
 selected = {true},
 abbr = {HPCA},
-award = {Best Paper Honorable Mention},
+award = {Best Paper Honorable Mention; IEEE MICRO Top Picks Honorable Mention},
 pdf = {CORDOBA_HPCA2025_DOI.pdf},
 html = {https://ieeexplore.ieee.org/document/10946766},
 keywords={Measurement;Uncertainty;Three-dimensional displays;Computational modeling;Hardware;Carbon;Optimization;Carbon footprint;Three-dimensional integrated circuits;System analysis and design;carbon-efficient computing;carbon footprint;metrics;carbon-aware optimization},
-doi={10.1109/HPCA61900.2025.00098}
+doi={10.1109/HPCA61900.2025.00098},
+rank = {7}
 }
 
 @misc{HotCarbon2025,
@@ -71,12 +90,15 @@ url = {https://doi.org/10.1145/3757892.3757909},
 doi = {10.1145/3757892.3757909},
 abstract = {The rapid rise of Large Language Models (LLMs) has prompted a re-evaluation of system architecture design, making energy efficiency and sustainability more crucial than ever. Recently, wafer-scale architectures have emerged as a viable alternative for LLM training and inference, as evidenced by the success of Cerebras Systems. In this work, we examine the carbon implications of wafer-scale architectures as compared to traditional GPUs. As a case study, we examine LLMs on a Cerebras CS-3 system in order to quantify power and total carbon. Then, we analyze total carbon delay product (tCDP) to evaluate the carbon efficiency and performance potential of these systems. We take the first step towards exploring this trade-off for wafer-scale versus traditional GPU architectures - and ultimately find there exists a rich design space, depending on workload and hardware configuration.},
 journal = {SIGENERGY Energy Inform. Rev.},
-month = aug,
 pages = {118–124},
 numpages = {7},
 keywords = {wafer-scale, carbon footprint, large language models, sustainability, sustainable computing},
-abbr = {HotCarbon},
-pdf = {Elgamal_HotCarbon_2025.pdf}
+abbr = {HotCarbon; ACM SIGENERGY Energy Informatics Review},
+pdf = {Elgamal_HotCarbon_2025.pdf},
+html = {https://dl.acm.org/doi/10.1145/3757892.3757909},
+selected = {false},
+pubtype = {workshop},
+rank = {11}
 }
 
 @misc{HotEthics2024,
@@ -88,7 +110,8 @@ pdf = {HotEthics24_PFAS_Elgamal.pdf},
 location = {San Diego, CA},
 series = {HotEthics '24},
 selected = {false},
-abbr = {HotEthics}
+abbr = {HotEthics},
+rank = {6}
 }
 
 @misc{HotCarbon2023,
@@ -100,7 +123,7 @@ publisher = {Association for Computing Machinery},
 address = {New York, NY, USA},
 html = {https://doi.org/10.1145/3604930.3605712},
 doi = {10.1145/3604930.3605712},
-abstract = {The world's push toward an environmentally sustainable society is highly dependent on the semiconductor industry, due to carbon footprints of global-scale sources such as computing systems for virtual and extended reality applications (VR and XR). Despite previous carbon modeling efforts for such computing systems, there lacks a wide range of design tools to optimize total life cycle carbon footprint (during manufacturing and also during day-to-day operation), while meeting application-level constraints (power, performance, area). To address this need, we have developed a carbon-aware design framework that optimizes carbon efficiency of computing systems---quantified by metrics such as total Carbon Delay Product (tCDP: the product of total carbon and total application execution time)---while also identifying key design parameters for improving carbon efficiency. As a case study, we demonstrate the effectiveness of our framework to improve tCDP of hardware accelerators for artificial intelligence (AI) and XR applications. We show: (1) optimizing for carbon efficiency (tCDP) instead of energy efficiency (Energy-Delay Product or EDP) improves carbon efficiency by up to 6.9x---i.e., optimizing for EDP is insufficient; (2) for multi-core CPUs inside production VR headsets, optimizing number of cores (from 8 to 4) improves tCDP by 1.25x (over their entire lifetime); (3) leveraging an advanced three-dimensional integration (3D) technique (3D stacking of separately-fabricated logic and memory chips) can improve tCDP by 6.9x vs. conventional systems (no 3D stacking).},
+abstract = {The world's push toward an environmentally sustainable society is highly dependent on the semiconductor industry, due to carbon footprints of global-scale sources such as computing systems for virtual and extended reality applications (VR and XR). Despite previous carbon modeling efforts for such computing systems, there lacks a wide range of design tools to optimize total life cycle carbon footprint (during manufacturing and also during day-to-day operation), while meeting application-level constraints (power, performance, area). To address this need, we have developed a carbon-aware design framework that optimizes carbon efficiency of computing systems---quantified by metrics such as total Carbon Delay Product (tCDP: the product of total carbon and total application execution time)---while also identifying key design parameters for improving carbon efficiency. As a case study, we demonstrate the effectiveness of our framework to improve tCDP of hardware accelerators for artificial intelligence (AI) and XR applications. We show: (1) optimizing for carbon efficiency (tCDP) instead of energy efficiency (Energy-Delay Product or EDP) improves carbon efficiency by up to 6.9×---i.e., optimizing for EDP is insufficient; (2) for multi-core CPUs inside production VR headsets, optimizing number of cores (from 8 to 4) improves tCDP by 1.25× (over their entire lifetime); (3) leveraging an advanced three-dimensional integration (3D) technique (3D stacking of separately-fabricated logic and memory chips) can improve tCDP by 6.9× vs. conventional systems (no 3D stacking).},
 booktitle = {Proceedings of the 2nd Workshop on Sustainable Computer Systems},
 articleno = {16},
 numpages = {7},
@@ -109,7 +132,8 @@ location = {Boston, MA, USA},
 series = {HotCarbon '23},
 selected = {false},
 abbr = {HotCarbon},
-pdf = {HotCarbon2023_Elgamal.pdf}
+pdf = {HotCarbon2023_Elgamal.pdf},
+rank = {4},
 }
 
 @inproceedings{ACT2022,
@@ -131,12 +155,13 @@ series = {ISCA '22},
 selected = {true},
 abbr = {ISCA},
 award = {IEEE MICRO Top Picks},
-pdf = {ACT_ISCA2022.pdf}
+pdf = {ACT_ISCA2022.pdf},
+rank = {3},
 }
 
 
 @article{CellPatterns2025,
-	abstract = {This article presents a holistic research agenda to address the significant environmental impact of information and communication technology (ICT), which accounts for 2.1{\%}?3.9{\%} of global greenhouse gas emissions. It proposes several research thrusts to achieve sustainable computing: accurate carbon accounting models, life cycle design strategies for hardware, efficient use of renewable energy, and integrated design and management strategies for next-generation hardware and software systems. If successful, the research would flatten and reverse growth trajectories for computing power and carbon, especially for rapidly growing applications like artificial intelligence. The research takes a holistic approach because strategies that reduce operational carbon may increase embodied carbon, and vice versa. Achieving these goals will require interdisciplinary collaboration between computer scientists, electrical engineers, environmental scientists, and economists.},
+	abstract = {This article presents a holistic research agenda to address the significant environmental impact of information and communication technology (ICT), which accounts for 2.1{\%}--3.9{\%} of global greenhouse gas emissions. It proposes several research thrusts to achieve sustainable computing: accurate carbon accounting models, life cycle design strategies for hardware, efficient use of renewable energy, and integrated design and management strategies for next-generation hardware and software systems. If successful, the research would flatten and reverse growth trajectories for computing power and carbon, especially for rapidly growing applications like artificial intelligence. The research takes a holistic approach because strategies that reduce operational carbon may increase embodied carbon, and vice versa. Achieving these goals will require interdisciplinary collaboration between computer scientists, electrical engineers, environmental scientists, and economists.},
 	annote = {doi: 10.1016/j.patter.2025.101296},
 	author = {Lee, Benjamin C. and Brooks, David and van Benthem, Arthur and Elgamal, Mariam and Gupta, Udit and Hills, Gage and Liu, Vincent and Phan, Linh Thi Xuan and Pierce, Benjamin and Stewart, Christopher and Strubell, Emma and Wei, Gu-Yeon and Wierman, Adam and Yao, Yuan and Yu, Minlan},
 	date = {2025/07/11},
@@ -145,18 +170,15 @@ pdf = {ACT_ISCA2022.pdf}
 	doi = {10.1016/j.patter.2025.101296},
 	isbn = {2666-3899},
 	journal = {Patterns},
-	n2 = {This article presents a holistic research agenda to address the significant environmental impact of information and communication technology (ICT), which accounts for 2.1{\%}?3.9{\%} of global greenhouse gas emissions. It proposes several research thrusts to achieve sustainable computing: accurate carbon accounting models, life cycle design strategies for hardware, efficient use of renewable energy, and integrated design and management strategies for next-generation hardware and software systems. If successful, the research would flatten and reverse growth trajectories for computing power and carbon, especially for rapidly growing applications like artificial intelligence. The research takes a holistic approach because strategies that reduce operational carbon may increase embodied carbon, and vice versa. Achieving these goals will require interdisciplinary collaboration between computer scientists, electrical engineers, environmental scientists, and economists.},
 	number = {7},
 	publisher = {Elsevier},
 	title = {A View of the Sustainable Computing Landscape},
-	type = {doi: 10.1016/j.patter.2025.101296},
 	url = {https://doi.org/10.1016/j.patter.2025.101296},
 	volume = {6},
 	year = {2025},
-	year1 = {2025},
-	bdsk-url-1 = {https://doi.org/10.1016/j.patter.2025.101296},
 	abbr = {Cell Patterns},
-	pdf = {Elgamal_CellPatterns_2025.pdf}
+	pdf = {Elgamal_CellPatterns_2025.pdf},
+	rank = {12},
 }
 
 
@@ -171,7 +193,8 @@ year = {2021},
 doi = {10.1021/acs.jpcc.1c01478},
 html = {https://doi.org/10.1021/acs.jpcc.1c01478},
 eprint = {https://doi.org/10.1021/acs.jpcc.1c01478},
-abbr = {J. Phys. Chem. C}
+abbr = {J. Phys. Chem. C},
+rank = {2},
 }
 
 @article{JoCM2021,
@@ -185,6 +208,36 @@ year = {2021},
 doi = {10.1177/0021998320973744},
 html = {https://doi.org/10.1177/0021998320973744},
 eprint = {https://doi.org/10.1177/0021998320973744}, 
-abstract = { Polymer matrix composites exhibit nonlinear viscoelastic behavior over a wide range of temperatures and loading frequencies, which requires an elaborate experimental characterization campaign. Methods are now available to accelerate the characterization process and recover elastic modulus from storage modulus (E′). However, these methods are limited to the linear viscoelastic region and need to be expanded to nonlinear viscoelastic problems to enable materials design. The present work aims to build a general machine learning based architecture to accelerate the characterization and materials design process for nonlinear viscoelastic materials using the E′ results. To expand outside the linear viscoelastic region, general relations of viscoelasticity are first developed so the master relation of E′ considering nonlinear viscoelasticity can be transformed to time domain relaxation function. The transform starts with building the master relation by optimizing the artificial neural network (ANN) formulation using Kriging model and genetic algorithm. Then the master relation is transformed to a relaxation function, which can be used to predict the stress response with a given strain history and to further extract the elastic modulus. The transform is tested on high density polyethylene matrix syntactic foams and the accuracy is found by comparing the predicted materials properties with those obtained from tensile tests. The good agreements indicate the transform can predict the elastic modulus under a wide range of temperatures and strain rates for any composition of the composite and can be used for material design problems. },
-abbr = {J. Comps. Mater.}
+abbr = {J. Comps. Mater.},
+rank = {1},
 }
+
+@ARTICLE{ACT2023Micro,
+  author={Gupta, Udit and Elgamal, Mariam and Hills, Gage and Wei, Gu-Yeon and Lee, Hsien-Hsin S. and Brooks, David and Wu, Carole-Jean},
+  journal={IEEE Micro}, 
+  title={Architectural CO<sub>2</sub> Footprint Tool: Designing Sustainable Computer Systems With an Architectural Carbon Modeling Tool}, 
+  year={2023},
+  volume={43},
+  number={4},
+  pages={107-117},
+  keywords={Hardware;Carbon dioxide;Carbon footprint;Manufacturing;Carbon;Random access memory;Optimization},
+  doi={10.1109/MM.2023.3275139},
+  abbr = {IEEE Micro},
+  html = {https://ieeexplore.ieee.org/abstract/document/10122998},
+  rank = {5},
+  }
+
+@ARTICLE{FiresideChat2025,
+  author={Elgamal, Mariam and Li, Yueying Lisa},
+  journal={IEEE Micro}, 
+  title={Measuring What Matters: A Fireside Chat With Joel Emer}, 
+  year={2025},
+  volume={45},
+  number={1},
+  pages={104-112},
+  keywords={},
+  doi={10.1109/MM.2025.3536716},
+  html = {https://ieeexplore.ieee.org/abstract/document/10915742},
+  abbr = {IEEE Micro},
+  rank = {8},
+  }
